@@ -201,9 +201,9 @@ Subscribe the host with the subscription:
 sudo subscription-manager register --username $RHN_user --password $RHN_password
 sudo subscription-manager release --set=9.2
 sudo subscription-manager repos --disable=*
-sudo subscription-manager repos --enable=rhel-9-for-x86_64-baseos-eus-rpms \
---enable=rhel-9-for-x86_64-appstream-eus-rpms \
---enable=rhel-9-for-x86_64-highavailability-eus-rpms \
+sudo subscription-manager repos --enable=rhel-9-for-x86_64-baseos-e4s-rpms \
+--enable=rhel-9-for-x86_64-appstream-e4s-rpms \
+--enable=rhel-9-for-x86_64-highavailability-e4s-rpms \
 --enable=openstack-17.1-for-rhel-9-x86_64-rpms \
 --enable=fast-datapath-for-rhel-9-x86_64-rpms
 sudo dnf -y update
@@ -255,9 +255,9 @@ Execute the *openstack_compute.sh* script to install *compute02*:
 sudo subscription-manager register --username $RHN_user --password $RHN_password
 sudo subscription-manager release --set=9.2
 sudo subscription-manager repos --disable=*
-sudo subscription-manager repos --enable=rhel-9-for-x86_64-baseos-eus-rpms \
---enable=rhel-9-for-x86_64-appstream-eus-rpms \
---enable=rhel-9-for-x86_64-highavailability-eus-rpms \
+sudo subscription-manager repos --enable=rhel-9-for-x86_64-baseos-e4s-rpms \
+--enable=rhel-9-for-x86_64-appstream-e4s-rpms \
+--enable=rhel-9-for-x86_64-highavailability-e4s-rpms \
 --enable=openstack-17.1-for-rhel-9-x86_64-rpms \
 --enable=fast-datapath-for-rhel-9-x86_64-rpms
 sudo dnf -y update
@@ -283,9 +283,9 @@ Execute the *openstack_compute.sh* script to install *compute03*:
 sudo subscription-manager register --username $RHN_user --password $RHN_password
 sudo subscription-manager release --set=9.2
 sudo subscription-manager repos --disable=*
-sudo subscription-manager repos --enable=rhel-9-for-x86_64-baseos-eus-rpms \
---enable=rhel-9-for-x86_64-appstream-eus-rpms \
---enable=rhel-9-for-x86_64-highavailability-eus-rpms \
+sudo subscription-manager repos --enable=rhel-9-for-x86_64-baseos-e4s-rpms \
+--enable=rhel-9-for-x86_64-appstream-e4s-rpms \
+--enable=rhel-9-for-x86_64-highavailability-e4s-rpms \
 --enable=openstack-17.1-for-rhel-9-x86_64-rpms \
 --enable=fast-datapath-for-rhel-9-x86_64-rpms
 sudo dnf -y update
