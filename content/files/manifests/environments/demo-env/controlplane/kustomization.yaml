@@ -1,0 +1,74 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+resources:
+  - ../../../base/controlplane
+
+patches:
+  - target:
+      group: nmstate.io
+      version: v1
+      kind: NodeNetworkConfigurationPolicy
+      name: osp-multi-nic-worker-ocp4-worker1
+    patch: |-
+      - op: replace
+        path: /metadata/name
+        value: "control-plane-cluster-t55fn-1"
+      - op: replace
+        path: /spec/nodeSelector/kubernetes.io~1hostname
+        value: "control-plane-cluster-t55fn-1"
+      - op: replace
+        path: /spec/desiredState/interfaces/3/ipv4/address/0/ip
+        value: "192.168.6.128"
+
+  - target:
+      group: nmstate.io
+      version: v1
+      kind: NodeNetworkConfigurationPolicy
+      name: osp-multi-nic-worker-ocp4-worker2
+    patch: |-
+      - op: replace
+        path: /metadata/name
+        value: "control-plane-cluster-t55fn-2"
+      - op: replace
+        path: /spec/nodeSelector/kubernetes.io~1hostname
+        value: "control-plane-cluster-t55fn-2"
+      - op: replace
+        path: /spec/desiredState/interfaces/3/ipv4/address/0/ip
+        value: "192.168.6.129"
+
+  - target:
+      group: nmstate.io
+      version: v1
+      kind: NodeNetworkConfigurationPolicy
+      name: osp-multi-nic-worker-ocp4-worker3
+    patch: |-
+      - op: replace
+        path: /metadata/name
+        value: "control-plane-cluster-t55fn-3"
+      - op: replace
+        path: /spec/nodeSelector/kubernetes.io~1hostname
+        value: "control-plane-cluster-t55fn-3"
+      - op: replace
+        path: /spec/desiredState/interfaces/3/ipv4/address/0/ip
+        value: "192.168.6.130"
+
+  - target:
+      kind: NetConfig
+      name: openstacknetconfig
+    patch: |-
+      - op: replace
+        path: /spec/networks/0/dnsDomain
+        value: ctlplane.sandbox-t55fn-ocp4-cluster.svc.cluster.local
+      - op: replace
+        path: /spec/networks/1/dnsDomain
+        value: internalapi.sandbox-t55fn-ocp4-cluster.svc.cluster.local
+      - op: replace
+        path: /spec/networks/2/dnsDomain
+        value: tenant.sandbox-t55fn-ocp4-cluster.svc.cluster.local
+      - op: replace
+        path: /spec/networks/3/dnsDomain
+        value: storage.sandbox-t55fn-ocp4-cluster.svc.cluster.local
+      - op: replace
+        path: /spec/networks/4/dnsDomain
+        value: external.sandbox-t55fn-ocp4-cluster.svc.cluster.local
